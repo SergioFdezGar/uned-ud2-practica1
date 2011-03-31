@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="select_mision">Seleccione una misión</string>
+    <string name="app_name">UNED-UD2-Practica1</string>
+    <string name="recuperar_dir">Recuperar dirección de la misión</string>
+    <string name="denegado">Denegado: No eres agente de la T.I.A</string>
+    <string name="error_respuesta">Ha ocurrido un error al recoger la respuesta. :-(</string>
+</resources>
