@@ -4,5 +4,7 @@
     <string name="app_name">UNED-UD2-Practica1</string>
     <string name="recuperar_dir">Recuperar dirección de la misión</string>
     <string name="denegado">Denegado: No eres agente de la T.I.A</string>
-    <string name="error_respuesta">Ha ocurrido un error al recoger la respuesta. :-(</string>
+    <string name="error_respuesta">Ha ocurrido un error al recoger la respuesta.</string>
+    <string name="config">Configuración</string>
+    <string name="about">Acerca de</string>
 </resources>

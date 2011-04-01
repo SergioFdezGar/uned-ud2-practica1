@@ -1,11 +1,10 @@
 <entradas>
-	<entrada mision="El sulfato atómico" direccion="Buzón de correos en calle de Anacleto, 11" />
-	<entrada mision="Gatolandia 76" direccion="Alcantarilla en Calle Ofelia" />
-	<entrada mision="El caso de los parvulitos" direccion="Calle Rue del Percebe, 13" />
-	<entrada mision="Pekin 2008" direccion="Oficina de correos La Repanocha" />
-	<entrada mision="¡En la luna!" direccion="Árbol junto a la casa de Rompetechos" />
-	<entrada mision="Nuestro antepasado el mico" direccion="Nido de pájaros en la Calle Bacterio" />
-	<entrada mision="Mundial 2010" direccion="Póster de Coca-Loca en la Calle Ibañez" />
-	<entrada mision="La Gripe U" direccion="Cueva del oso en el Bosque Otilio" />	
-	<entrada mision="Llegó el euro!!!" direccion="Calle Filemón, 15" />	
+	<entrada mision="El sulfato atómico" direccion="Buzón de correos en calle de Anacleto, 11" longitud="40645089" latitud="-3992561"/>
+	<entrada mision="Gatolandia 76" direccion="Alcantarilla en Calle Ofelia" longitud="40460157" latitud="-3709614"/>
+	<entrada mision="El caso de los parvulitos" direccion="Calle Rue del Percebe, 13" longitud="40357292" latitud="-3517205"/>
+	<entrada mision="Pekin 2008" direccion="Oficina de correos La Repanocha" longitud="40435319" latitud="-3701835"/>
+	<entrada mision="¡En la luna!" direccion="Árbol junto a la casa de Rompetechos" longitud="40349600" latitud="-3523500"/>
+	<entrada mision="La Gripe U" direccion="Cueva del oso en el Bosque Otilio" longitud="40409710" latitud="-3704880"/>	
+	<entrada mision="Llegó el euro!!!" direccion="Calle Filemón, 15" longitud="40405700" latitud="-3615180"/>
 </entradas>
+
