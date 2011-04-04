@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="hello">Hello World, HomeActivity!</string>
-    <string name="app_name">UNED-UD2-Practica2</string>
+<resources>   
+    <string name="app_name">UNED-UD2-Practica1</string>
+    <string name="label_mision">Seleccione una misión</string>
+    <string name="label_obtener">Recuperar dirección de la misión</string>
+    <string name="label_resultado">La entrada secreta está en:\n</string>
+    <string name="label_resultado_error">Denegado: No eres agente de la T.I.A.</string>        
 </resources>
