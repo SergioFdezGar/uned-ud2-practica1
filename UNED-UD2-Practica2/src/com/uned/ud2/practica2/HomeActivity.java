@@ -6,10 +6,15 @@ import java.util.Random;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import com.uned.ud2.practica2.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -59,6 +64,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 		        {
 		            public void onClick(View v)
 		            {
+		           
 		            	llamarTrivialActivity();
 		            }
 		        });
@@ -77,19 +83,31 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
         }        
     }    
     
+    //Cuando la Actividad vuelve a estar Activa	
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     	
     	if (requestCode == GET_CODE) {
 
         	TextView mResultado = (TextView)findViewById(R.id.text_resultado);
+        	Button btnDireccion=(Button)findViewById(R.id.btn_direccion);
+        	btnDireccion.setOnClickListener(new OnClickListener()
+	        {
+	            public void onClick(View v)
+	            {
+	           
+	            	llamarMyMapActivity();
+	            }
+	        });
 
             if (resultCode == RESULT_CANCELED) { // No ha sido devuelto correctamente el valor
                 mResultado.setText(""); 
             } else {
             	int iDevuelto = Integer.parseInt(data.getAction());
             	if (iDevuelto == aPreguntas.get(iPregunta).getRespCorrecta()){ //Comprobamos si es correcto el valor con la respuesta
-            		mResultado.setText(getString(R.string.label_resultado) + aEntradas.get(iEntradaSeleccionada).getDireccion());
+            		mResultado.setText(getString(R.string.label_resultado));
+            		btnDireccion.setVisibility(1);
+            		btnDireccion.setText(aEntradas.get(iEntradaSeleccionada).getDireccion());
             	}else{
             		mResultado.setText(getString(R.string.label_resultado_error));
             	}
@@ -111,7 +129,16 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     	i.putExtra(XML_PREGUNTA_RESPUESTA4, aP.getRespuesta4());    	
     	startActivityForResult(i, GET_CODE);
     }
+
     
+    private void llamarMyMapActivity(){
+    	// Creamos un Intent y añadimos los parametros de una pregunta de forma aleatoria
+    	Intent i = new Intent(this, MyMapActivity.class);    	    	    	
+    	startActivityForResult(i, GET_CODE+1);
+    	
+    }    
+
+
 	@Override
 	public void onItemSelected(AdapterView<?>  parent, View v, int position, long id) {
 		iEntradaSeleccionada = position; //Almacenamos la posicion de la lista seleccionada en spinner		
@@ -209,4 +236,28 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     	}
     	return aListaTitulos;
     }
+    
+    
+	   @Override
+	    public boolean onCreateOptionsMenu(Menu menu) {
+	        MenuInflater inflater = getMenuInflater();
+	        inflater.inflate(R.menu.menu, menu);
+	        return true;
+	    }
+	    
+	    @Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+	        // Handle item selection
+	        switch (item.getItemId()) {
+	        case R.id.config:
+	            //Función de configuración;
+	            return true;
+	        case R.id.about:
+	            //Función para ver la actividad de Acerca de;
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	        }
+	    	
+	    }
 }
