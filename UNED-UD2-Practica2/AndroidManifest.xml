@@ -18,7 +18,7 @@
         <activity android:name="com.uned.ud2.practica2.TrivialActivity"
                   android:theme="@android:style/Theme.Light">           
         </activity>        
-        <activity android:name="CustomItemizedOverlay"
+        <activity android:name="MyMapActivity"
                   android:theme="@android:style/Theme.Light"> 
         </activity>
         <activity android:name="com.uned.ud2.practica2.SettingsActivity">           
