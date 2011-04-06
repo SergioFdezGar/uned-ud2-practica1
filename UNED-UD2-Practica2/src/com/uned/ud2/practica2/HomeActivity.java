@@ -10,7 +10,6 @@ import com.uned.ud2.practica2.R;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;

@@ -9,8 +9,9 @@ public class Entrada {
 	public Entrada(String pMision, String pDireccion, int pLongitud, int pLatitud){
 		this.mision = pMision;
 		this.direccion = pDireccion;
-		this.longitud= pLongitud;
-		this.latitud=pLatitud;
+		//Cambiados aposta para por error en el XML
+		this.longitud=pLatitud; 
+		this.latitud=pLongitud;
 	}
 	
 	public String getMision(){
