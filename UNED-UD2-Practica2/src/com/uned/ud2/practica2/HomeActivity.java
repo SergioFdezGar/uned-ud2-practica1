@@ -10,6 +10,7 @@ import com.uned.ud2.practica2.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -34,6 +35,8 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	private static final String XML_PREGUNTA = "pregunta";
 	private static final String XML_ENTRADA_MISION = "mision";
 	private static final String XML_ENTRADA_DIRECCION = "direccion";
+	private static final String XML_ENTRADA_LONGITUD = "longitud";
+	private static final String XML_ENTRADA_LATITUD = "latitud";
 	    	
 	// KEYS utilizados para el paso de parametros entre actividades
 	public static final String XML_PREGUNTA_ENCABEZADO = "encabezado";
@@ -132,9 +135,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 
     
     private void llamarMyMapActivity(){
-    	// Creamos un Intent y añadimos los parametros de una pregunta de forma aleatoria
-    	Intent i = new Intent(this, MyMapActivity.class);    	    	    	
-    	startActivityForResult(i, GET_CODE+1);
+    	// Creamos un Intent y añadimos los parametros de una pregunta de forma aleatoria    	    	    	   	
+    	Intent i = new Intent(this, MyMapActivity.class);
+    	i.putExtra(XML_ENTRADA_MISION, aEntradas.get(iEntradaSeleccionada).getMision().toString());
+    	i.putExtra(XML_ENTRADA_DIRECCION, aEntradas.get(iEntradaSeleccionada).getDireccion().toString());
+    	i.putExtra(XML_ENTRADA_LONGITUD, aEntradas.get(iEntradaSeleccionada).getLongitud());
+    	i.putExtra(XML_ENTRADA_LATITUD, aEntradas.get(iEntradaSeleccionada).getLatitud());
+    	
+    	startActivity(i);
     	
     }    
 
@@ -159,6 +167,8 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
                 String name = parser.getName();                
                 String mision = null;
                 String direccion = null;
+                int longitud= 0;
+                int latitud=0;
                 if ((name != null) && name.equals(XML_ENTRADA)) {
                     int size = parser.getAttributeCount();
                     for (int i = 0; i < size; i++) {
@@ -168,10 +178,15 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
                             mision = attrValue;
                         } else if ((attrName != null) && attrName.equals(XML_ENTRADA_DIRECCION)) {
                             direccion = attrValue;
+                        } else if ((attrName != null) && attrName.equals(XML_ENTRADA_LONGITUD)) {
+                            longitud = Integer.parseInt(attrValue);
+                        } else if ((attrName != null) && attrName.equals(XML_ENTRADA_LATITUD)) {
+                            latitud = Integer.parseInt(attrValue);
                         }
+                        
                     }
                     if ((mision != null) && (direccion != null)) {
-                        aEntradas.add(new Entrada(mision,direccion));
+                        aEntradas.add(new Entrada(mision,direccion, longitud, latitud));
                     }
                 }                
             }            

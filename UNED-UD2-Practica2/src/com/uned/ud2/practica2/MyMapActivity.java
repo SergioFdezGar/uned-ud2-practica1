@@ -31,11 +31,15 @@ public class MyMapActivity extends MapActivity {
 		drawable = this.getResources().getDrawable(R.drawable.entrada);
 		itemizedOverlay = new CustomItemizedOverlay(drawable, null);
 		
-		GeoPoint point = new GeoPoint(19240000,-99120000);
-		OverlayItem overlayitem = new OverlayItem(point, "", "");
+		Bundle bundle=this.getIntent().getExtras();
+		
+		GeoPoint point = new GeoPoint(bundle.getInt("latitud"), bundle.getInt("longitud"));
+		OverlayItem overlayitem = new OverlayItem(point, "Hello", "It's funny");
 		
 		itemizedOverlay.addOverlay(overlayitem);
 		mapOverlays.add(itemizedOverlay);
+		
+		
 	}
 	
 	public MyMapActivity() {
