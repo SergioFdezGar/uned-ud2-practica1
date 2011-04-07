@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <PreferenceCategory
+                android:title="Opciones del mapa">
+                <ListPreference>
+                        android:title="Vista del mapa"
+                        android:summary="Vista del mapa"
+                        android:key="lst_Map"
+                        android:defaultValue="digiGreen"
+                        android:entries="@arrays/pef_map"
+                        android:entryValues="@arrays/pref_map"
+                </ListPreference>
+        
+        </PreferenceCategory>
+ 
+</PreferenceScreen>

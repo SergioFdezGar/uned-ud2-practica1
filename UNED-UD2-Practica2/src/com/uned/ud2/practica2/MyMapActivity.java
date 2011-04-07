@@ -29,12 +29,12 @@ public class MyMapActivity extends MapActivity {
 		
 		mapOverlays = mvMapa.getOverlays();
 		drawable = this.getResources().getDrawable(R.drawable.entrada);
-		itemizedOverlay = new CustomItemizedOverlay(drawable, null);
+		itemizedOverlay = new CustomItemizedOverlay(drawable, this);
 		
 		Bundle bundle=this.getIntent().getExtras();
 		
 		GeoPoint point = new GeoPoint(bundle.getInt("latitud"), bundle.getInt("longitud"));
-		OverlayItem overlayitem = new OverlayItem(point, "Hello", "It's funny");
+		OverlayItem overlayitem = new OverlayItem(point, bundle.getString("mision").toString(), bundle.getString("direccion").toString());
 		
 		itemizedOverlay.addOverlay(overlayitem);
 		mapOverlays.add(itemizedOverlay);

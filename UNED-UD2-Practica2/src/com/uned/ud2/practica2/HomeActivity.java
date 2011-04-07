@@ -264,7 +264,10 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	        // Handle item selection
 	        switch (item.getItemId()) {
 	        case R.id.config:
-	            //Función de configuración;
+	            //Llamamos a la actividad para la configuración
+	        	Intent config = new Intent(this, SettingsActivity.class);
+	        	startActivity(config);
+	        	
 	            return true;
 	        case R.id.about:
 	            //Función para ver la actividad de Acerca de;
