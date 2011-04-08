@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="pref_map">
+
+	<!-- La parte que aparece en las preferencias -->
+    <string-array name="entries_maps_preference">
         <item>Callejero</item>
         <item>Satélite</item>
     </string-array>
+    
+	<!-- Valores de la preferencia -->
+    <string-array name="entryvalues_maps_preference">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    
 </resources>

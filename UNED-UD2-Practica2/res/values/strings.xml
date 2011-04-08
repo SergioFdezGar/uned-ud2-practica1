@@ -4,5 +4,11 @@
     <string name="label_mision">Seleccione una misión</string>
     <string name="label_obtener">Recuperar dirección de la misión</string>
     <string name="label_resultado">La entrada secreta está en:\n</string>
-    <string name="label_resultado_error">Denegado: No eres agente de la T.I.A.</string>        
+    <string name="label_resultado_error">Denegado: No eres agente de la T.I.A.</string>
+    
+    <!-- Preferencias del mapa -->
+    <string name="group_maps_preference">Opciones del mapa</string>
+    <string name="title_maps_preference">Preferencias del mapa</string>
+    <string name="sumary_maps_preference">Modifica las preferencias del mapa</string>
+            
 </resources>
