@@ -25,9 +25,15 @@ import android.widget.TextView;
 
 public class HomeActivity extends Activity implements AdapterView.OnItemSelectedListener {
 	
-	private static final String LOGTAG = "UD2-Practica1";
+	private static final String LOGTAG = "UD2-Practica2";
     
 	private static final int GET_CODE = 0;
+	
+	//Valores del menu
+	private static final int CONFIGURACION= 1;
+	private static final int ACERCADE= 2;
+	
+	
     
 	// KEYS de etiquetas para facilitar la lectura de los ficheros xml
 	private static final String XML_ENTRADA = "entrada";
@@ -89,32 +95,42 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     	
-    	if (requestCode == GET_CODE) {
+    	TextView mResultado = (TextView)findViewById(R.id.text_resultado);
+    	if (requestCode==RESULT_OK){
+    		switch (resultCode){
+    			case GET_CODE:
+    				
+    				Button btnDireccion=(Button)findViewById(R.id.btn_direccion);
+    				
+                	int iDevuelto = Integer.parseInt(data.getAction());
+                	if (iDevuelto == aPreguntas.get(iPregunta).getRespCorrecta()){ //Comprobamos si es correcto el valor con la respuesta
+                		mResultado.setText(getString(R.string.label_resultado));
+                		btnDireccion.setVisibility(1);
+                		btnDireccion.setText(aEntradas.get(iEntradaSeleccionada).getDireccion());
+                	}else{
+                		mResultado.setText(getString(R.string.label_resultado_error));
+                	}
+    				
+    				//Listener 
+    				btnDireccion.setOnClickListener(new OnClickListener()
+    				{
+    					public void onClick(View v)
+    					{
+    						llamarMyMapActivity();
+    					}
+    				});
+            	break;
+            	
+            	
+    			case CONFIGURACION:
+    				
+    				break;
+    		}
+    		
+    	}else{
+    		mResultado.setText("");
+    	}
 
-        	TextView mResultado = (TextView)findViewById(R.id.text_resultado);
-        	Button btnDireccion=(Button)findViewById(R.id.btn_direccion);
-        	btnDireccion.setOnClickListener(new OnClickListener()
-	        {
-	            public void onClick(View v)
-	            {
-	           
-	            	llamarMyMapActivity();
-	            }
-	        });
-
-            if (resultCode == RESULT_CANCELED) { // No ha sido devuelto correctamente el valor
-                mResultado.setText(""); 
-            } else {
-            	int iDevuelto = Integer.parseInt(data.getAction());
-            	if (iDevuelto == aPreguntas.get(iPregunta).getRespCorrecta()){ //Comprobamos si es correcto el valor con la respuesta
-            		mResultado.setText(getString(R.string.label_resultado));
-            		btnDireccion.setVisibility(1);
-            		btnDireccion.setText(aEntradas.get(iEntradaSeleccionada).getDireccion());
-            	}else{
-            		mResultado.setText(getString(R.string.label_resultado_error));
-            	}
-            }
-        }
     }
 
 
@@ -263,14 +279,17 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	    public boolean onOptionsItemSelected(MenuItem item) {
 	        // Handle item selection
 	        switch (item.getItemId()) {
-	        case R.id.config:
+	        case CONFIGURACION:
 	            //Llamamos a la actividad para la configuración
 	        	Intent config = new Intent(this, SettingsActivity.class);
-	        	startActivity(config);
+	        	startActivityForResult(config, CONFIGURACION);
 	        	
 	            return true;
-	        case R.id.about:
+	        case ACERCADE:
 	            //Función para ver la actividad de Acerca de;
+	        	//Intent about = new Intent(this, AboutActivity.class);
+	        	//startActivity(about, ACERCADE);
+
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
