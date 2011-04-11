@@ -96,8 +96,8 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     	
     	TextView mResultado = (TextView)findViewById(R.id.text_resultado);
-    	if (requestCode==RESULT_OK){
-    		switch (resultCode){
+    	if (resultCode==RESULT_OK){
+    		switch (requestCode){
     			case GET_CODE:
     				
     				Button btnDireccion=(Button)findViewById(R.id.btn_direccion);
@@ -279,16 +279,16 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	    public boolean onOptionsItemSelected(MenuItem item) {
 	        // Handle item selection
 	        switch (item.getItemId()) {
-	        case CONFIGURACION:
+	        case R.id.config:
 	            //Llamamos a la actividad para la configuración
 	        	Intent config = new Intent(this, SettingsActivity.class);
 	        	startActivityForResult(config, CONFIGURACION);
 	        	
 	            return true;
-	        case ACERCADE:
+	        case R.id.about:
 	            //Función para ver la actividad de Acerca de;
-	        	//Intent about = new Intent(this, AboutActivity.class);
-	        	//startActivity(about, ACERCADE);
+	        	Intent about = new Intent(this, AboutActivity.class);
+	        	startActivity(about);
 
 	            return true;
 	        default:
