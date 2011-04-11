@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>   
-    <string name="app_name">UNED-UD2-Practica1</string>
+    <string name="app_name">UNED-UD2-Practica2</string>
     <string name="label_mision">Seleccione una misión</string>
     <string name="label_obtener">Recuperar dirección de la misión</string>
     <string name="label_resultado">La entrada secreta está en:\n</string>
@@ -10,5 +10,8 @@
     <string name="group_maps_preference">Opciones del mapa</string>
     <string name="title_maps_preference">Preferencias del mapa</string>
     <string name="sumary_maps_preference">Modifica las preferencias del mapa</string>
-            
+    
+    <!-- Parte del "Acerca de" -->
+    <string name="alumno">Sergio Fernández García</string>
+    <string name="codigo">mo10029</string>        
 </resources>
