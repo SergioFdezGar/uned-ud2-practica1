@@ -9,9 +9,8 @@ public class Entrada {
 	public Entrada(String pMision, String pDireccion, int pLongitud, int pLatitud){
 		this.mision = pMision;
 		this.direccion = pDireccion;
-		//Cambiados aposta para por error en el XML
-		this.longitud=pLatitud; 
-		this.latitud=pLongitud;
+		this.longitud=pLongitud; 
+		this.latitud=pLatitud;
 	}
 	
 	public String getMision(){
@@ -20,10 +19,6 @@ public class Entrada {
 	
 	public String getDireccion(){
 		return this.direccion;
-	}
-	
-	public String toString(){
-		return this.mision + " " + this.direccion;
 	}
 	
 	public int getLongitud(){

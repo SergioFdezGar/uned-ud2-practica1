@@ -31,7 +31,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	
 	//Valores del menu
 	private static final int CONFIGURACION= 1;
-	private static final int ACERCADE= 2;
+	//private static final int ACERCADE= 2;
 	
 	
     
@@ -116,7 +116,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     				{
     					public void onClick(View v)
     					{
-    						llamarMyMapActivity();
+    						CustomItemizedOverlay();
     					}
     				});
             	break;
@@ -149,9 +149,9 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     }
 
     
-    private void llamarMyMapActivity(){
+    private void CustomItemizedOverlay(){
     	// Creamos un Intent y añadimos los parametros de una pregunta de forma aleatoria    	    	    	   	
-    	Intent i = new Intent(this, MyMapActivity.class);
+    	Intent i = new Intent(this, CustomItemizedOverlay.class);
     	i.putExtra(XML_ENTRADA_MISION, aEntradas.get(iEntradaSeleccionada).getMision().toString());
     	i.putExtra(XML_ENTRADA_DIRECCION, aEntradas.get(iEntradaSeleccionada).getDireccion().toString());
     	i.putExtra(XML_ENTRADA_LONGITUD, aEntradas.get(iEntradaSeleccionada).getLongitud());
