@@ -21,10 +21,7 @@ public class SettingsActivity extends PreferenceActivity{
 	
 	@Override
 	public void onDestroy(){
-		super.onDestroy();
-		//mListPreference.setSummary(sharedPreferences.getValue("modo", ""));
-		
-		
+		super.onDestroy();	
 	}
 
 }

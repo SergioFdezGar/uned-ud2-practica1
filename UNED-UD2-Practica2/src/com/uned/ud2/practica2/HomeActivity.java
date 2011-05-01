@@ -23,18 +23,12 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class HomeActivity extends Activity implements AdapterView.OnItemSelectedListener {
-	
+public class HomeActivity extends Activity implements AdapterView.OnItemSelectedListener {	
 	private static final String LOGTAG = "UD2-Practica2";
     
+	//Valores para las actividades que devuelven datos a ésta Activity
 	private static final int GET_CODE = 0;
 	
-	//Valores del menu
-	private static final int CONFIGURACION= 1;
-	//private static final int ACERCADE= 2;
-	
-	
-    
 	// KEYS de etiquetas para facilitar la lectura de los ficheros xml
 	private static final String XML_ENTRADA = "entrada";
 	private static final String XML_PREGUNTA = "pregunta";
@@ -116,15 +110,10 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     				{
     					public void onClick(View v)
     					{
-    						CustomItemizedOverlay();
+    						llamarMyMapActivity();
     					}
     				});
             	break;
-            	
-            	
-    			case CONFIGURACION:
-    				
-    				break;
     		}
     		
     	}else{
@@ -137,8 +126,9 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     private void llamarTrivialActivity(){
     	// Creamos un Intent y añadimos los parametros de una pregunta de forma aleatoria
     	Intent i = new Intent(this, TrivialActivity.class);    	    	
-    	Random mRnd = new Random();
-    	iPregunta = mRnd.nextInt(aPreguntas.size());
+		long seed = System.currentTimeMillis();
+		Random aleatorio= new Random(seed);
+    	iPregunta = aleatorio.nextInt(aPreguntas.size());
     	Pregunta aP = aPreguntas.get(iPregunta);
     	i.putExtra(XML_PREGUNTA_ENCABEZADO, aP.getPregunta());
     	i.putExtra(XML_PREGUNTA_RESPUESTA1, aP.getRespuesta1());
@@ -149,9 +139,9 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
     }
 
     
-    private void CustomItemizedOverlay(){
+    private void llamarMyMapActivity(){
     	// Creamos un Intent y añadimos los parametros de una pregunta de forma aleatoria    	    	    	   	
-    	Intent i = new Intent(this, CustomItemizedOverlay.class);
+    	Intent i = new Intent(this, MyMapActivity.class);
     	i.putExtra(XML_ENTRADA_MISION, aEntradas.get(iEntradaSeleccionada).getMision().toString());
     	i.putExtra(XML_ENTRADA_DIRECCION, aEntradas.get(iEntradaSeleccionada).getDireccion().toString());
     	i.putExtra(XML_ENTRADA_LONGITUD, aEntradas.get(iEntradaSeleccionada).getLongitud());
@@ -282,7 +272,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemSelected
 	        case R.id.config:
 	            //Llamamos a la actividad para la configuración
 	        	Intent config = new Intent(this, SettingsActivity.class);
-	        	startActivityForResult(config, CONFIGURACION);
+	        	startActivity(config);
 	        	
 	            return true;
 	        case R.id.about:
